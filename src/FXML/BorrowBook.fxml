@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="218.0" prefWidth="230.0" style="-fx-background-color: #0598FF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BorrowBookController">
+   <children>
+      <Button fx:id="BorrowBookClose" layoutX="208.0" layoutY="6.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: transparent;">
+         <graphic>
+            <Icons525View fill="WHITE" glyphName="CANCEL" size="15" />
+         </graphic>
+      </Button>
+      <TextField fx:id="BorrowBookUID" layoutX="68.0" layoutY="86.0" prefHeight="26.0" prefWidth="142.0" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UID :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="BorrowBookContinue" layoutX="78.0" layoutY="162.0" mnemonicParsing="false" onAction="#BorrowBook" prefHeight="39.0" prefWidth="73.0" text="BORROW" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Text fill="WHITE" layoutX="39.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BORROW BOOK">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="BorrowBookLabel" alignment="CENTER" layoutX="-1.0" layoutY="123.0" prefHeight="39.0" prefWidth="230.0" textAlignment="CENTER" textFill="YELLOW">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

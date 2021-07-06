@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="513.0" prefWidth="500.0" style="-fx-background-color: #0598FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EditMemberController">
+   <children>
+      <TextField fx:id="editMemberUID" layoutX="169.0" layoutY="70.0" onAction="#uidTyped" prefHeight="26.0" prefWidth="275.0" />
+      <Text fill="WHITE" layoutX="28.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UID :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="editMemberPassword" layoutX="169.0" layoutY="144.0" prefHeight="26.0" prefWidth="275.0" />
+      <Text fill="WHITE" layoutX="28.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="28.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="editMemberAddress" layoutX="169.0" layoutY="182.0" prefHeight="135.0" prefWidth="275.0" />
+      <TextField fx:id="editMemberPhone" layoutX="169.0" layoutY="333.0" prefHeight="26.0" prefWidth="275.0" />
+      <Text fill="WHITE" layoutX="28.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="editMemberEmail" layoutX="169.0" layoutY="371.0" prefHeight="26.0" prefWidth="275.0" />
+      <Text fill="WHITE" layoutX="28.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="editMemberClose" layoutX="463.0" layoutY="7.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: transparent;">
+         <graphic>
+            <Icons525View fill="WHITE" glyphName="CANCEL" size="20" />
+         </graphic>
+      </Button>
+      <Button fx:id="editMemberContinue" layoutX="423.0" layoutY="454.0" mnemonicParsing="false" onAction="#editMember" prefHeight="43.0" prefWidth="62.0" text="EDIT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label fx:id="editMemberLabel" alignment="CENTER" layoutY="404.0" prefHeight="43.0" prefWidth="500.0" textAlignment="CENTER" textFill="#ffff00">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="183.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT MEMBER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="editMemberName" layoutX="169.0" layoutY="108.0" prefHeight="26.0" prefWidth="275.0" />
+      <Text fill="WHITE" layoutX="28.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

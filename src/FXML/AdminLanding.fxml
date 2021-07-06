@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: f4f4f4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminController">
+   <children>
+      <VBox prefHeight="560.0" prefWidth="168.0" style="-fx-background-color: #0598FF;">
+         <children>
+            <Pane prefHeight="140.0" prefWidth="168.0">
+               <children>
+                  <Icons525View glyphName="LIBRARY" layoutX="47.0" layoutY="102.0" size="75" />
+               </children>
+            </Pane>
+            <Button fx:id="bookButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Books" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="BOOKS" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="membersButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Members" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="USER" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="borrowedButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Borrowed" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="TABLE" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="requestsButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Requests" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="BOOKM_BLK" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="authorsButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Authors" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="MARKER" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="publishersButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Publishers" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="DROPBOX" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="logButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="60.0" prefWidth="175.0" text="Log" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <Icons525View glyphName="DATABASE" size="20" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Button fx:id="logout" layoutX="765.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="36.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <Icons525View glyphName="LOGOUT" size="20" />
+         </graphic>
+      </Button>
+      <StackPane layoutX="168.0" layoutY="26.0" prefHeight="534.0" prefWidth="632.0">
+         <children>
+            <Pane fx:id="authorsPane" layoutX="10.0" layoutY="10.0" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarAuthors" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchAuthors" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <Button fx:id="addAuthor" layoutY="7.0" mnemonicParsing="false" onAction="#addAuthor" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_PLUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="removeAuthor" layoutX="46.0" layoutY="7.0" mnemonicParsing="false" onAction="#removeAuthor" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_MINUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <TableView fx:id="authorsTable" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="authorUID" prefWidth="310.0" style="-fx-alignment: CENTER;" text="UID" />
+                      <TableColumn fx:id="authorName" prefWidth="310.0" style="-fx-alignment: CENTER;" text="Name" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="authorSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Label fx:id="authorsTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="publishersPane" layoutX="10.0" layoutY="10.0" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarPublishers" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchPublishers" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <Button fx:id="addPublisher" layoutY="7.0" mnemonicParsing="false" onAction="#addPublisher" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_PLUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="removePublisher" layoutX="46.0" layoutY="7.0" mnemonicParsing="false" onAction="#removePublisher" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_MINUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <TableView fx:id="publishersTable" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="publisherUID" prefWidth="310.0" style="-fx-alignment: CENTER;" text="UID" />
+                      <TableColumn fx:id="publisherName" prefWidth="310.0" style="-fx-alignment: CENTER;" text="Name" />
+                    </columns>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TableView>
+                  <ComboBox fx:id="publisherSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Label fx:id="publishersTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="membersPane" layoutX="10.0" layoutY="10.0" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarMembers" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchMembers" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <Button fx:id="addMember" layoutY="7.0" mnemonicParsing="false" onAction="#addMember" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_PLUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="removeMember" layoutX="46.0" layoutY="7.0" mnemonicParsing="false" onAction="#removeMember" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_MINUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <TableView fx:id="membersTable" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="memberUID" prefWidth="88.0" style="-fx-alignment: CENTER;" text="UID" />
+                      <TableColumn fx:id="memberName" prefWidth="88.0" style="-fx-alignment: CENTER;" text="Name" />
+                        <TableColumn fx:id="memberPassword" prefWidth="88.0" style="-fx-alignment: CENTER;" text="Password" />
+                        <TableColumn fx:id="memberAddress" prefWidth="90.0" style="-fx-alignment: CENTER;" text="Address" />
+                        <TableColumn fx:id="memberPhone" prefWidth="88.0" style="-fx-alignment: CENTER;" text="Phone" />
+                        <TableColumn fx:id="memberEmail" prefWidth="88.0" style="-fx-alignment: CENTER;" text="Email" />
+                        <TableColumn fx:id="memberJoined" prefWidth="88.0" style="-fx-alignment: CENTER;" text="Join Date" />
+                    </columns>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TableView>
+                  <ComboBox fx:id="memberSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Button fx:id="editMember" layoutX="92.0" layoutY="7.0" mnemonicParsing="false" onAction="#editMember" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="PENCIL2" size="30" />
+                     </graphic>
+                  </Button>
+                  <Label fx:id="membersTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="borrowedPane" layoutX="10.0" layoutY="10.0" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarBorrowed" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchBorrowed" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <TableView fx:id="borrowedTable" layoutY="55.0" prefHeight="480.0" prefWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="borrowedMemberUID" prefWidth="155.0" style="-fx-alignment: CENTER;" text="Member UID" />
+                      <TableColumn fx:id="borrowedBookUID" prefWidth="155.0" style="-fx-alignment: CENTER;" text="Book UID" />
+                        <TableColumn fx:id="borrowedBorrowDate" prefWidth="155.0" style="-fx-alignment: CENTER;" text="Date Borrowed" />
+                        <TableColumn fx:id="borrowedDueDate" prefWidth="155.0" style="-fx-alignment: CENTER;" text="Date Due" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="borrowedSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Button fx:id="returnBook" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#returnBook" text="Return Book" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="borrowedTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="logPane" layoutX="10.0" layoutY="10.0" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarLog" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchLog" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <TableView fx:id="logTable" layoutY="55.0" prefHeight="480.0" prefWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="logTransactionID" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Transaction ID" />
+                      <TableColumn fx:id="logMemberUID" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Member UID" />
+                        <TableColumn fx:id="logMemberName" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Member Name" />
+                        <TableColumn fx:id="logBookUID" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Book UID" />
+                        <TableColumn fx:id="logBookName" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Book Name" />
+                        <TableColumn fx:id="logBorrowDate" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Date Borrowed" />
+                        <TableColumn fx:id="logReturnDate" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Date Returned" />
+                        <TableColumn fx:id="logOverdue" prefWidth="77.5" style="-fx-alignment: CENTER;" text="Overdue" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="logSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Label fx:id="logTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="booksPane" layoutX="10.0" layoutY="10.0" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarBooks" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchBooks" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <TableView fx:id="booksTable" layoutY="55.0" maxHeight="480.0" maxWidth="632.0" minHeight="480.0" minWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="bookUID" prefWidth="75.0" style="-fx-alignment: CENTER;" text="UID" />
+                      <TableColumn fx:id="bookName" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Name" />
+                        <TableColumn fx:id="bookAvailable" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Available" />
+                        <TableColumn fx:id="bookTotal" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Total" />
+                        <TableColumn fx:id="bookAuthor" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Author" />
+                        <TableColumn fx:id="bookPublisher" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Publisher" />
+                        <TableColumn fx:id="bookGenre" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Genre" />
+                        <TableColumn fx:id="bookYear" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Year" />
+                        <TableColumn fx:id="bookPrice" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Price" />
+                        <TableColumn fx:id="bookLocation" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Location" />
+                        <TableColumn fx:id="bookState" prefWidth="75.0" style="-fx-alignment: CENTER;" text="State" />
+                        <TableColumn fx:id="bookType" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Type" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="addBook" layoutY="7.0" mnemonicParsing="false" onAction="#addBook" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_PLUS" selectionFill="#0598ff" size="30" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="removeBook" layoutX="46.0" layoutY="7.0" mnemonicParsing="false" onAction="#removeBook" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="SQUARE_MINUS" size="30" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="editBook" layoutX="92.0" layoutY="7.0" mnemonicParsing="false" onAction="#editBook" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Icons525View glyphName="PENCIL2" size="30" />
+                     </graphic>
+                  </Button>
+                  <ComboBox fx:id="bookSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Label fx:id="booksTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="requestsPane" prefHeight="512.0" prefWidth="632.0" style="-fx-background-color: f4f4f4;">
+               <children>
+                  <TextField fx:id="searchBarRequests" layoutX="469.0" layoutY="14.0" onKeyTyped="#searchRequests" />
+                  <Icons525View glyphName="SEARCH" layoutX="444.0" layoutY="34.0" size="18" />
+                  <TableView fx:id="requestsTable" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="632.0" prefHeight="480.0" prefWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="requestsMemberUID" prefWidth="124.0" style="-fx-alignment: CENTER;" text="Member UID" />
+                      <TableColumn fx:id="requestsBookName" prefWidth="124.0" style="-fx-alignment: CENTER;" text="Book Name" />
+                        <TableColumn fx:id="requestsAuthorName" prefWidth="124.0" style="-fx-alignment: CENTER;" text="Author" />
+                        <TableColumn fx:id="requestsPublisherName" prefWidth="124.0" style="-fx-alignment: CENTER;" text="Publisher" />
+                        <TableColumn fx:id="requestsBookYear" prefWidth="124.0" style="-fx-alignment: CENTER;" text="Year" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="requestSearchChoice" layoutX="285.0" layoutY="14.0" prefWidth="150.0" />
+                  <Button fx:id="clearRequest" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#clearRequest" text="Clear Request" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="requestsTotalResults" alignment="CENTER_RIGHT" layoutX="470.0" layoutY="38.0" prefHeight="17.0" prefWidth="149.0" text="Results ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
