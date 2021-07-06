@@ -26,3 +26,9 @@ local.properties
 
 # Locally stored "Eclipse launch configurations"
 *.launch
+
+#custom files
+Dependencies/fontawesomefx
+Dependencies/java mail
+Dependencies/javafx
+Dependencies/sql
